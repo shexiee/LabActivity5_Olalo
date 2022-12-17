@@ -12,12 +12,18 @@ public class SimpleCalcGUI extends JFrame {
     private JTextField tfNumber2;
     private JTextField lblResult;
 
+
     public static void main(String[] args) {
-        SimpleCalcGUI app = new SimpleCalcGUI();
-        app.setContentPane(app.panel1);
-        app.setSize(500, 300);
-        app.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        app.setVisible(true);
-        app.setTitle("Simple Calculator");
+        JFrame window = new SimpleCalcGUI("Simple Calculator");
+        window.setVisible(true);
+        window.setLocationRelativeTo(null);
+    }
+
+    public SimpleCalcGUI(String title) {
+        super(title);
+        this.setContentPane(panel1);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.pack();
+        lblResult.setEditable(false);
     }
 }
