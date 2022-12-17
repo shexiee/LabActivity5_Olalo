@@ -28,7 +28,11 @@ public class FoodOrderGUI extends JFrame {
         btnOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    calc_order();
+                } catch (Exception e2) {
+                    JOptionPane.showMessageDialog(panel1, e2.getMessage());
+                }
             }
         });
     }
@@ -40,5 +44,40 @@ public class FoodOrderGUI extends JFrame {
         app.setSize(600, 700);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setVisible(true);
+    }
+
+    public void calc_order() {
+        double total = 0;
+        if (cPizza.isSelected()) {
+            total += 100;
+        }
+        if (cBurger.isSelected()) {
+            total += 80;
+        }
+        if (cFries.isSelected()) {
+            total += 65;
+        }
+        if (cSoftDrinks.isSelected()) {
+            total += 55;
+        }
+        if (cTea.isSelected()) {
+            total += 50;
+        }
+        if (cSundae.isSelected()) {
+            total += 40;
+        }
+
+        double discount = 0;
+        if (rb5.isSelected()) {
+            discount = 0.05;
+        } else if (rb10.isSelected()) {
+            discount = 0.1;
+        } else if (rb15.isSelected()) {
+            discount = 0.15;
+        }
+
+        total -= (total * discount);
+
+        JOptionPane.showMessageDialog(panel1, String.format("The total price is Php %.2f", total));
     }
 }
