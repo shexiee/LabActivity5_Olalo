@@ -30,6 +30,7 @@ public class SimpleCalcGUI extends JFrame {
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
                     double num1 = Double.parseDouble(tfNumber1.getText());
                     double num2 = Double.parseDouble(tfNumber2.getText());
                     double result = 0;
@@ -52,7 +53,10 @@ public class SimpleCalcGUI extends JFrame {
                             lblResult.setText(String.valueOf(String.format("%.2f", result)));
                             break;
                     }
+                } catch (Exception a) {
+                    JOptionPane.showMessageDialog(null, "Invalid Input");
+                }
             }
         });
     }
-    }
+}
