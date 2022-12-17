@@ -17,6 +17,7 @@ public class SimpleCalcGUI extends JFrame {
 
     public static void main(String[] args) {
         JFrame window = new SimpleCalcGUI("Simple Calculator");
+        window.setTitle("Simple Calculator");
         window.setVisible(true);
         window.setLocationRelativeTo(null);
     }
